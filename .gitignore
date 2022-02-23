@@ -1,4 +1,4 @@
 .DS_Store
-.vscode
-dist
 workspace.code-workspace
+project/avrasm32.exe
+project/avr_dude_prog
