@@ -9,8 +9,8 @@
 
 
 ;==========		DEFINES =======================================
-	.include "..\project\Appnotes\m8def.inc";		m8def 	 m16def	  m168def
-	.include "..\lib\hd44780\hd44780def.inc";
+	.include "./project/Appnotes/m8def.inc";		m8def 	 m16def	  m168def
+	.include "./lib/hd44780/hd44780def.inc";
 	.DEF sys			=r20;
 	.DEF Cycles_Counter	=R21; счетчик циклов в Expect_X
 	.DEF ERR_CODE		=R22; возврат ошибок из подпрограмм
@@ -25,7 +25,7 @@
 rjmp Reset; Перескакиваем на Reset
 
 ;==========		LIBS ===============================================; 
-.include "..\lib\hd44780\hd44780lib.asm"
+.include "./lib/hd44780/hd44780lib.asm"
 ;==========		END LIBS ===========================================;
 
 
@@ -126,7 +126,7 @@ LCD_outStrings:
 	ldi		r16, 1;				// Линия 1
 	ldi		r17, 1;				// Позиция 1
 	rcall	set_lcd_cursor_on_pos
-	ldi		r16, 'H'
+	ldi		r16, 'h'
 	rcall	print_ASCII_symbol_to_LCD
 	ldi		r16, 'u'
 	rcall	print_ASCII_symbol_to_LCD
@@ -148,7 +148,7 @@ LCD_outStrings:
 	ldi		r16, 2;	// Линия 2
 	ldi		r17, 1;	// Позиция 1
 	rcall	set_lcd_cursor_on_pos
-	ldi		r16, 'T'
+	ldi		r16, 't'
 	rcall	print_ASCII_symbol_to_LCD
 	ldi		r16, 'e'
 	rcall	print_ASCII_symbol_to_LCD

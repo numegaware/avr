@@ -1,6 +1,7 @@
-# **Configure USBasp**
+# on Mac OSX
+## **Configure USBasp**
 
-## Install libusb on Mac OSX
+## Install libusb
 https://macappstore.org/libusb/
 ```
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 2> /dev/null
@@ -57,22 +58,25 @@ link: [avrdude-prog-osx-link](https://github.com/trol73/AVRFuses/releases)
 ```
 $ make install
 ```
+<br><br><br><br>
+# on Windows
 
-# Assembler Code for Atmega chip
-##### version 1
-<br>
 
-## Compile  and Launch:
-<div>Text in vs terminal $ ./build.bat</div>
-<div>OR IN VSCODE: CTRL+SHIFT+B</div>
-<div>Then bern your chip...</div>
-<br/>
-
-____________________________
-RUN IN VSCODE:
+## Compile and Launch the project
+```
+$ ./build.bat
+```
+IN VSCODE:
+```
 CTRL+SHIFT+B
+```
+## AVR_DUDE
+link: [avr_dude_prog](https://www.yourdevice.net/proekty/avrdude-prog) <br>
+link: [avr_dude](http://download.savannah.gnu.org/releases/avrdude/)
+<br><br>
+usage: avrasm32.exe [options] file.asm
+```
 
-usage: avrasm2.exe [options] file.asm
  Options:
 -f [O|M|I|G|-] output file format:
 -fO Debug info for simulation in Atmel Studio (default)
@@ -107,8 +111,4 @@ the -f [M|I|G] option.
 -W+ie|+iw Unsupported instruction error | warning
 -W+fw Label slip caused by forward ref accepted (DANGEROUS)
 -FD|Tfmt __DATE__ | __TIME__ format, using strftime(3) format string
-______________________________
-
-## AVR_DUDE
-https://www.yourdevice.net/proekty/avrdude-prog
-http://download.savannah.gnu.org/releases/avrdude/
+```

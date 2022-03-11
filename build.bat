@@ -1,6 +1,6 @@
 echo off
 
-set OUTPUT_FILE_NAME=flash
+set OUTPUT_FILE_NAME=index
 set INPUT_FILE_NAME=index
 set OS=WIN
 
