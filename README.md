@@ -1,4 +1,4 @@
-# **Configure USBasp**
+# **<h1>MAC OSX Configure USBasp</h1>**
 
 ## Install libusb on Mac OSX
 https://macappstore.org/libusb/
@@ -8,7 +8,7 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
 $ brew install libusb
 ```
 
-## Instal AVRA (avr assembler)
+## Instal AVRA (avr assembler on mac osx)
 alternate: https://macappstore.org/avra/
 
 http://blog.translusion.com/posts/avrassembly/
@@ -18,7 +18,7 @@ http://blog.translusion.com/posts/avrassembly/
 - go to folder /usr/local/bin/ and share folder
 - $ make install
 
-## Instal AVRDUDE (6.4)
+## Instal AVRDUDE for mac osx (6.4)
 ![avrdude](./README_IMG/avrdude.png)
 - Download avrdude
 
@@ -57,20 +57,30 @@ link: [avrdude-prog-osx-link](https://github.com/trol73/AVRFuses/releases)
 ```
 $ make install
 ```
+</br></br>
 
+# **<h1>For Windows</h1>**
 # Assembler Code for Atmega chip
 ##### version 1
 <br>
 
-## Compile  and Launch:
-<div>Text in vs terminal $ ./build.bat</div>
-<div>OR IN VSCODE: CTRL+SHIFT+B</div>
-<div>Then bern your chip...</div>
+<h2> How to Compile and Launch: </h2>
+
+<div>A: TEXT IN VS terminal:</div>
+
+```
+C:\Users\Sergy\Documents\avr>./build.bat
+```
+
+<div>B: OR VSCODE Hot Key: CTRL+SHIFT+B</div>
+<br><br>
+<h2>Then bern your chip in AVRDUDE or another app</h2>
 <br/>
 
+## link to AVR_DUDE:
+https://www.yourdevice.net/proekty/avrdude-prog
+http://download.savannah.gnu.org/releases/avrdude/
 ____________________________
-RUN IN VSCODE:
-CTRL+SHIFT+B
 
 usage: avrasm2.exe [options] file.asm
  Options:
@@ -108,7 +118,3 @@ the -f [M|I|G] option.
 -W+fw Label slip caused by forward ref accepted (DANGEROUS)
 -FD|Tfmt __DATE__ | __TIME__ format, using strftime(3) format string
 ______________________________
-
-## AVR_DUDE
-https://www.yourdevice.net/proekty/avrdude-prog
-http://download.savannah.gnu.org/releases/avrdude/

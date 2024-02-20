@@ -4,7 +4,7 @@
 ; Датчик температуры и влажности
 
 
-dht11_get:
+getDataFromDHT11:
 	push	r16;
 
     rcall   makeRequestSignal;

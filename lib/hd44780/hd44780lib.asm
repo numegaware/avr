@@ -1,7 +1,7 @@
 ; Created by S.Adamovich
 
-; Дисплей: lcd1602(04)a
-; Контроллер: hd44780
+; Display: lcd1602(04)a
+; Controller: hd44780
 
 
 ;movlw       .16               ;сдвиг экрана влево на 16 позиций
@@ -26,8 +26,8 @@
 ;ldi		r16, 255; задержку(чтобы не надоедать дисплею)
 ;rcall	WaitMiliseconds ; 
 
-; ----------Подпрограмма инициализации дисплея-------------------------------------
-LCD_Init:
+;// ---------- Diaplay Initialisation Subroutine --------------
+initLCDHD44780:
 	
 	push r16
 	push r17
@@ -88,7 +88,7 @@ LCD_Init:
 ret;
 
 
-;**
+;/**
 ;* Set cursor on position
 ;*
 ;* @param r16 - line pos (1..4)
@@ -100,7 +100,8 @@ ret;
 ;* 128+0x54  cursor on 4 string , 1 symbol (128+0х55 first.. )
 ;* 128+0x10  cursor on 3 string , 1 symbol (128+0х10 first.. )(16x4)
 ;* 128+0x50  cursor on 4 string , 1 symbol (128+0х50 first.. )(16x4)
-set_lcd_cursor_on_pos:
+;*/
+setLCDHD44780CursorOn___R16_LineY___R17_PosX:
 	push r16
 	push r17
 	
@@ -141,11 +142,13 @@ set_lcd_cursor_on_pos:
 ret
 
 
-;**-----Print data on an HD44780 screen (symbols)-----
+;/**-----Print data on an HD44780 screen (symbols)-----
 ;*
 ;* can be use one after another!
 ;* @param r16 is an ASCII symbol (0x33 for example)
-print_ASCII_symbol_to_LCD:
+;*
+;*/
+setInLCDHD44780___R16_AsciiSymbol:
 	push r16
 	
 	sbi		LCD_PORT, LCD_RS 	; Поднимаем RS на +5

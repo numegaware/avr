@@ -37,16 +37,16 @@ Reset:
 	
 	CLI;						// прерывания не нужны
 	
-	rcall	dht11_get;			// Данные из DHT11
+	rcall	getDataFromDHT11;			// Данные из DHT11
 	
-	rcall	LCD_init;			// Вызываем Инициализацию дисплея
-	rcall	LCD_outStrings;
+	rcall	initLCDHD44780;			// Вызываем Инициализацию дисплея
+	rcall	setLCDHD44780Strings;
 	rcall	clearSys;
-rcall MainLoop;
+rcall mainLoop;
 
-MainLoop:
+mainLoop:
 	rcall	updateLCDData;	
-rjmp MainLoop;
+rjmp mainLoop;
 
 
 
@@ -96,7 +96,7 @@ prvt_fourCyclesWaiting:
 	brne fourCyclesWaitingLoop;	// Переходим если не равно 0
 ret;
 
-dht11_get:
+getDataFromDHT11:
 	push	r16;
 
 	sbi		DDRD, 1;		// порт D пин 1 уст-ся на выход
@@ -119,59 +119,59 @@ dht11_get:
 	pop		r16;
 ret;
 
-LCD_outStrings:
+setLCDHD44780Strings:
 	push	r16;
 	push	r17;
 
 	ldi		r16, 1;				// Линия 1
 	ldi		r17, 1;				// Позиция 1
-	rcall	set_lcd_cursor_on_pos
+	rcall	setLCDHD44780CursorOn___R16_LineY___R17_PosX
 	ldi		r16, 'H'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'u'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'm'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'i'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'd'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'i'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 't'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'y'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, ':'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	
 	ldi		r16, 2;	// Линия 2
 	ldi		r17, 1;	// Позиция 1
-	rcall	set_lcd_cursor_on_pos
+	rcall	setLCDHD44780CursorOn___R16_LineY___R17_PosX
 	ldi		r16, 'T'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'e'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'm'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'p'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'e'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'r'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'a'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 't'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'u'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'r'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'e'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, ':'
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 
 	pop		r17;
 	pop		r16;
@@ -185,7 +185,7 @@ addSys:
 	breq	clearSys;
 ret
 
-clearSys: 
+clearSys:
 	ldi		sys, 0x30; 0x30 Соответствует цифре 0 в ASCII
 ret
 
@@ -195,17 +195,17 @@ updateLCDData:
 
 	ldi		r16, 1;		// line
 	ldi		r17, 11;	// pos
-	rcall	set_lcd_cursor_on_pos
+	rcall	setLCDHD44780CursorOn___R16_LineY___R17_PosX
 	
 	mov		r16, sys; Копируем регистр sys, т.к. там наши цифры хранятся
-	rcall	print_ASCII_symbol_to_LCD ; Посылаем данные
+	rcall	setInLCDHD44780___R16_AsciiSymbol ; Посылаем данные
 
 	ldi		r16, 2;		// line
 	ldi		r17, 14;	// pos
-	rcall	set_lcd_cursor_on_pos
+	rcall	setLCDHD44780CursorOn___R16_LineY___R17_PosX
 
 	mov		r16, sys
-	rcall	print_ASCII_symbol_to_LCD
+	rcall	setInLCDHD44780___R16_AsciiSymbol
 	
 	ldi		r16, 255; задержку(чтобы не надоедать дисплею)
 	rcall	WaitMiliseconds;
@@ -225,5 +225,23 @@ getHDigit:
 		subi	r16, 0b00001010;
 		cpi		r16, 0b00000000;
 	brne	getHDigitLoop;
-		
 ret;
+
+
+
+;============	EXPECT 1->0 FALLING EDGE - START DHT11 RESPONSE ==========================
+EXPECT_FROM1TO0:
+	push r16
+
+	WLOW1:
+		IN r16, DHT_InPort	; читаем порт D, ждем low
+		SBRC r16, DHT_Pin	; если 1 то крутимся на WLOW, если ноль, то пошла передача.
+	RJMP WLOW1;
+		
+	NOP; Типа здесь старт передачи (подтвержение контроллера) - потупим пару тактов
+	NOP
+	NOP
+	;RCALL DELAY_10US		; ждем 10 микросекунд и выходим
+
+	pop r16
+RET
