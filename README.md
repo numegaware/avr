@@ -1,7 +1,20 @@
+# Compile and Launch the project
+```
+$ ./build.bat
+```
+IN VSCODE:
+```
+CTRL+SHIFT+B
+```
+
+<br/>
+
+
 # AVR Assembler Description PDF
 https://drive.google.com/file/d/1-HsrVMXKgiQLN9OGbYNEb5PTsMOyhfUK/view?usp=sharing
 
 <br/>
+
 
 # on Mac OSX
 ## **Configure USBasp**
@@ -66,15 +79,6 @@ $ make install
 <br><br><br><br>
 # on Windows
 
-
-## Compile and Launch the project
-```
-$ ./build.bat
-```
-IN VSCODE:
-```
-CTRL+SHIFT+B
-```
 ## AVR_DUDE
 link: [avr_dude_prog](https://www.yourdevice.net/proekty/avrdude-prog) <br>
 link: [avr_dude](http://download.savannah.gnu.org/releases/avrdude/)
