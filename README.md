@@ -20,7 +20,7 @@ http://blog.translusion.com/posts/avrassembly/
 - $ make install
 
 ## Instal AVRDUDE (6.4)
-![avrdude](./README_IMG/avrdude.png)
+![avrdude](./.github/img/avrdude.png)
 - Download avrdude
 
 link: [avrdude-link](http://download.savannah.gnu.org/releases/avrdude/)
@@ -50,7 +50,7 @@ $ make install
 ```
 
 ## AVRDUDEPROG for mac
-![AVRFuses](./README_IMG/AVRFuses_avrdude_v6.png)
+![AVRFuses](./.github/img/AVRFuses_avrdude_v6.png)
 
 link: [avrdude-prog-osx-link](https://github.com/trol73/AVRFuses/releases)
 
