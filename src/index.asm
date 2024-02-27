@@ -9,8 +9,8 @@
 
 
 ;==========		DEFINES =======================================
-	.include "..\project\Appnotes\m8def.inc";		m8def 	 m16def	  m168def
-	.include "..\lib\hd44780\hd44780def.inc";
+	.include "./avr_modules/Appnotes/m8def.inc";		m8def 	 m16def	  m168def
+	.include "./avr_modules/lib/hd44780/hd44780def.inc";
 	.DEF sys			=r20;
 	.DEF Cycles_Counter	=R21; счетчик циклов в Expect_X
 	.DEF ERR_CODE		=R22; возврат ошибок из подпрограмм
@@ -25,7 +25,7 @@
 rjmp Reset; Перескакиваем на Reset
 
 ;==========		LIBS ===============================================; 
-.include "..\lib\hd44780\hd44780lib.asm"
+.include "./avr_modules/lib/hd44780/hd44780lib.asm"
 ;==========		END LIBS ===========================================;
 
 
@@ -125,9 +125,9 @@ setLCDHD44780Strings:
 
 	ldi		r16, 1;				// Линия 1
 	ldi		r17, 1;				// Позиция 1
-	rcall	setLCDHD44780CursorOn___R16_LineY___R17_PosX
-	ldi		r16, 'H'
-	rcall	setInLCDHD44780___R16_AsciiSymbol
+	rcall	setLCDHD44780CursorOn___R16_LineY___R17_PosX; // set_lcd_cursor_on_pos
+	ldi		r16, 'h'
+	rcall	setInLCDHD44780___R16_AsciiSymbol; // print_ASCII_symbol_to_LCD
 	ldi		r16, 'u'
 	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'm'
@@ -147,9 +147,9 @@ setLCDHD44780Strings:
 	
 	ldi		r16, 2;	// Линия 2
 	ldi		r17, 1;	// Позиция 1
-	rcall	setLCDHD44780CursorOn___R16_LineY___R17_PosX
-	ldi		r16, 'T'
-	rcall	setInLCDHD44780___R16_AsciiSymbol
+	rcall	setLCDHD44780CursorOn___R16_LineY___R17_PosX; // set_lcd_cursor_on_pos
+	ldi		r16, 't'
+	rcall	setInLCDHD44780___R16_AsciiSymbol; // print_ASCII_symbol_to_LCD
 	ldi		r16, 'e'
 	rcall	setInLCDHD44780___R16_AsciiSymbol
 	ldi		r16, 'm'
@@ -234,8 +234,8 @@ EXPECT_FROM1TO0:
 	push r16
 
 	WLOW1:
-		IN r16, DHT_InPort	; читаем порт D, ждем low
-		SBRC r16, DHT_Pin	; если 1 то крутимся на WLOW, если ноль, то пошла передача.
+		;IN r16, DHT_InPort	; читаем порт D, ждем low
+		;SBRC r16, DHT_Pin	; если 1 то крутимся на WLOW, если ноль, то пошла передача.
 	RJMP WLOW1;
 		
 	NOP; Типа здесь старт передачи (подтвержение контроллера) - потупим пару тактов

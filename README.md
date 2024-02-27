@@ -1,7 +1,30 @@
-# **<h1>MAC OSX Configure USBasp</h1>**
+# **<h1>AVR Assembler project</h1>**
 
-## Install libusb on Mac OSX
+## **<h1>Compile and Launch the project</h1>**
+```
+$ ./build.bat
+```
+IN VSCODE:
+```
+CTRL+SHIFT+B
+```
+
+<br/>
+
+
+# AVR Assembler Description PDF
+https://drive.google.com/file/d/1-HsrVMXKgiQLN9OGbYNEb5PTsMOyhfUK/view?usp=sharing
+
+<br/>
+
+
+# On Mac OSX
+
+## Configure USBasp
+
+## Install libusb
 https://macappstore.org/libusb/
+
 ```
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 2> /dev/null
 
@@ -20,6 +43,8 @@ http://blog.translusion.com/posts/avrassembly/
 
 ## Instal AVRDUDE for mac osx (6.4)
 ![avrdude](./README_IMG/avrdude.png)
+## Instal AVRDUDE (6.4)
+![avrdude](./.github/img/avrdude.png)
 - Download avrdude
 
 link: [avrdude-link](http://download.savannah.gnu.org/releases/avrdude/)
@@ -49,7 +74,7 @@ $ make install
 ```
 
 ## AVRDUDEPROG for mac
-![AVRFuses](./README_IMG/AVRFuses_avrdude_v6.png)
+![AVRFuses](./.github/img/AVRFuses_avrdude_v6.png)
 
 link: [avrdude-prog-osx-link](https://github.com/trol73/AVRFuses/releases)
 
@@ -58,6 +83,8 @@ link: [avrdude-prog-osx-link](https://github.com/trol73/AVRFuses/releases)
 $ make install
 ```
 </br></br>
+<br><br><br><br>
+# on Windows
 
 # **<h1>For Windows</h1>**
 # Assembler Code for Atmega chip
@@ -81,8 +108,13 @@ C:\Users\Sergy\Documents\avr>./build.bat
 https://www.yourdevice.net/proekty/avrdude-prog
 http://download.savannah.gnu.org/releases/avrdude/
 ____________________________
+## AVR_DUDE
+link: [avr_dude_prog](https://www.yourdevice.net/proekty/avrdude-prog) <br>
+link: [avr_dude](http://download.savannah.gnu.org/releases/avrdude/)
+<br><br>
+usage: avrasm32.exe [options] file.asm
+```
 
-usage: avrasm2.exe [options] file.asm
  Options:
 -f [O|M|I|G|-] output file format:
 -fO Debug info for simulation in Atmel Studio (default)
@@ -117,4 +149,4 @@ the -f [M|I|G] option.
 -W+ie|+iw Unsupported instruction error | warning
 -W+fw Label slip caused by forward ref accepted (DANGEROUS)
 -FD|Tfmt __DATE__ | __TIME__ format, using strftime(3) format string
-______________________________
+```
