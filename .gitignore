@@ -4,4 +4,4 @@ workspace.code-workspace
 
 avr_modules/avrasm32.exe
 
-dist/
+/dist/

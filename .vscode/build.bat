@@ -12,5 +12,5 @@ if exist dist\ (
 )
 
 echo on
-%CD%\project\avrasm32 -o %CD%\dist\%OUTPUT_FILE_NAME%.hex -fI %CD%\src\%INPUT_FILE_NAME%.asm
+%CD%\avr_modules\avrasm32 -o %CD%\dist\%OUTPUT_FILE_NAME%.hex -fI %CD%\src\%INPUT_FILE_NAME%.asm
 pause

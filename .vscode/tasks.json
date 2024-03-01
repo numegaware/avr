@@ -6,7 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "./build.bat",
+            "command": "./.vscode/build.bat",
             "presentation": {
                 "echo": true,
                 "reveal": "always",
