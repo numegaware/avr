@@ -2,11 +2,20 @@
 
 ## **<h1>Compile and Launch the project</h1>**
 ```
-$ ./build.bat
+$ ./.vscode/build.bat
 ```
 IN VSCODE:
 ```
 CTRL+SHIFT+B
+```
+
+## **<h1>Compile and Launch the project on Mac</h1>**
+
+```
+avra -o dist/index.hex -e dist/index.eep.hex -d dist/index.obj -fI src/index.asm
+
+avrdude -p m8 -c Usbasp -B 1 -P usb usb -U calibration:R:calibration.hex:R
+
 ```
 
 <br/>
