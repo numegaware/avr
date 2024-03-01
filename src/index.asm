@@ -9,8 +9,8 @@
 
 
 ;==========		DEFINES =======================================
-	.include "./avr_modules/Appnotes/m8def.inc";		m8def 	 m16def	  m168def
-	.include "./avr_modules/lib/hd44780/hd44780def.inc";
+	.include "../avr_modules/Appnotes/m8def.inc";		m8def 	 m16def	  m168def
+	.include "../avr_modules/lib/hd44780/hd44780def.inc";
 	.DEF sys			=r20;
 	.DEF Cycles_Counter	=R21; счетчик циклов в Expect_X
 	.DEF ERR_CODE		=R22; возврат ошибок из подпрограмм
@@ -25,7 +25,7 @@
 rjmp Reset; Перескакиваем на Reset
 
 ;==========		LIBS ===============================================; 
-.include "./avr_modules/lib/hd44780/hd44780lib.asm"
+.include "../avr_modules/lib/hd44780/hd44780lib.asm"
 ;==========		END LIBS ===========================================;
 
 
