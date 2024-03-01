@@ -42,7 +42,6 @@ http://blog.translusion.com/posts/avrassembly/
 - $ make install
 
 ## Instal AVRDUDE for mac osx (6.4)
-![avrdude](./README_IMG/avrdude.png)
 ## Instal AVRDUDE (6.4)
 ![avrdude](./.github/img/avrdude.png)
 - Download avrdude

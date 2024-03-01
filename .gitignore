@@ -1,4 +1,7 @@
 .DS_Store
+
 workspace.code-workspace
-project/avrasm32.exe
-project/avr_dude_prog
+
+/avr_modules/avrasm32
+
+./dist
